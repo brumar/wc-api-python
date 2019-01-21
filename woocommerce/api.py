@@ -74,6 +74,8 @@ class API(object):
             "user-agent": "WooCommerce API Client-Python/%s" % __version__,
             "accept": "application/json"
         }
+        new_headers = kwargs.pop("headers", {})
+        headers.update(new_headers)
 
         if self.is_ssl is True and self.query_string_auth is False:
             auth = (self.consumer_key, self.consumer_secret)
